@@ -12,7 +12,7 @@ namespace AoC2025
         public int Size = 100;
         public int ZeroCount;
 
-        public void Solve(string file = @"C:\Users\colin.overton\Documents\AoC2025\input.txt")
+        public void Solve(string file = @"C:\Users\colin.overton\Documents\AoC2025\day1input.txt")
         {
             var lines = File.ReadAllLines(file);
 

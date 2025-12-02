@@ -11,10 +11,15 @@ namespace AoC2025
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var wheel = new SafeWheel();
-            wheel.Solve();
+            //var wheel = new SafeWheel();
+            //wheel.Solve();
 
-            Debug.WriteLine(wheel.ZeroCount);
+            //Debug.WriteLine(wheel.ZeroCount);
+
+
+            var v = new ProductIdValidator();
+            //v.Validate();
+            v.ValidatePart2();
         }
     }
 }
