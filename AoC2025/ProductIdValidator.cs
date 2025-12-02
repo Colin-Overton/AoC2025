@@ -26,7 +26,7 @@ namespace AoC2025
                 var max = Int64.Parse(rng[1]);
 
                 long minFirstHalf = rng[0].Length % 2 == 0 ? Int64.Parse(rng[0].Substring(0, rng[0].Length / 2))
-                                                           : (long)Math.Pow(10 , rng[0].Length/2);
+                                                           : (long)Math.Pow(10, rng[0].Length / 2);
 
                 Debug.WriteLine(prodRange + " => " + minFirstHalf);
 
