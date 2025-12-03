@@ -9,7 +9,7 @@ namespace AoC2025
 {
     internal class JoltageCalculator
     {
-        public void Calculate(string file = @"C:\Users\colin.overton\Documents\AoC2025\day3input.txt")
+        public long Calculate(string file = @"C:\Users\colin.overton\Documents\AoC2025\day3input.txt")
         {
             IEnumerable<string> lines;
 
@@ -32,7 +32,9 @@ namespace AoC2025
                 total += num;
             }
 
-            Debug.WriteLine(total);
+            Debug.WriteLine("Day3:" + total + " jolts");
+            
+            return total;
         }
 
         int FindBigDigit(string line, int startPos, int numdigits, int currdigit)

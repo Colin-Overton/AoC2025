@@ -92,6 +92,8 @@ namespace AoC2025
                 }
             }
 
+            Debug.WriteLine("Day2:" + total + " total");
+
             return total;
         }
 
