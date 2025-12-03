@@ -17,9 +17,12 @@ namespace AoC2025
             //Debug.WriteLine(wheel.ZeroCount);
 
 
-            var v = new ProductIdValidator();
+            //var v = new ProductIdValidator();
             //v.Validate();
-            v.ValidatePart2();
+            //v.ValidatePart2();
+
+            var j = new JoltageCalculator();
+            j.Calculate();
         }
     }
 }

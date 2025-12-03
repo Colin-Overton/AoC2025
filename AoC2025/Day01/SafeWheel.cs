@@ -18,13 +18,13 @@ namespace AoC2025
 
             foreach (var line in lines)
             {
-                if (String.IsNullOrEmpty(line))
+                if (string.IsNullOrEmpty(line))
                 {
                     continue;
                 }
 
                 var dir = line[0] == 'L' ? -1 : 1;
-                var sz = Int32.Parse(line.Substring(1));
+                var sz = int.Parse(line.Substring(1));
 
                 //stoopid reference version
                 //for (int i = 0; i < sz; i++)

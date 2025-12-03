@@ -22,10 +22,10 @@ namespace AoC2025
             foreach (var prodRange in prodRanges)
             {
                 var rng = prodRange.Split('-');
-                var min = Int64.Parse(rng[0]);
-                var max = Int64.Parse(rng[1]);
+                var min = long.Parse(rng[0]);
+                var max = long.Parse(rng[1]);
 
-                long minFirstHalf = rng[0].Length % 2 == 0 ? Int64.Parse(rng[0].Substring(0, rng[0].Length / 2))
+                long minFirstHalf = rng[0].Length % 2 == 0 ? long.Parse(rng[0].Substring(0, rng[0].Length / 2))
                                                            : (long)Math.Pow(10, rng[0].Length / 2);
 
                 Debug.WriteLine(prodRange + " => " + minFirstHalf);
@@ -56,8 +56,8 @@ namespace AoC2025
             foreach (var prodRange in prodRanges)
             {
                 var rng = prodRange.Split('-');
-                var min = Int64.Parse(rng[0]);
-                var max = Int64.Parse(rng[1]);
+                var min = long.Parse(rng[0]);
+                var max = long.Parse(rng[1]);
 
                 //check for repeated ids, e.g. 222222 can be 2, 22, 222 repeated
                 var foundIds = new HashSet<long>();
@@ -97,12 +97,12 @@ namespace AoC2025
 
         private long MakeLong(long currHalf)
         {
-            return Int64.Parse(currHalf.ToString() + currHalf.ToString());
+            return long.Parse(currHalf.ToString() + currHalf.ToString());
         }
 
         private long MakeLong(long currPart, int reps)
         {
-            return Int64.Parse(String.Concat(Enumerable.Repeat(currPart.ToString(), reps)));
+            return long.Parse(string.Concat(Enumerable.Repeat(currPart.ToString(), reps)));
         }
     }
 }
