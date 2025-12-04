@@ -12,6 +12,7 @@ namespace AoC2025
 
         const int lookAround = 1;
         const int maxMeighbours = 4;
+        const bool removeRolls = true;
 
         char[][] lines;
         int lineLen => lines[0].Length;
@@ -19,6 +20,8 @@ namespace AoC2025
         public int FindEm(string fileName = @"C:\Users\colin.overton\Documents\AoC2025\day4input.txt")
         {
             string[] lineStrings;
+
+//              test data
 //            lineStrings = @"..@@.@@@@.
 //@@@.@.@.@@
 //@@@@@.@.@@
@@ -42,16 +45,16 @@ namespace AoC2025
             int removed;
             do
             {
-                removed = RemoveAvailableRolls();
+                removed = CountAvailableRolls();
                 count += removed;
-            } while (removed > 0);
+            } while (removeRolls && removed > 0);
            
 
             Debug.WriteLine("Day4:" + count + " count");
             return count;
         }
 
-        private int RemoveAvailableRolls()
+        private int CountAvailableRolls()
         {
             int count = 0;
 
@@ -64,8 +67,11 @@ namespace AoC2025
                         var n = CountHeighbours(c, r);
                         if (n < maxMeighbours)
                         {
-                            lines[r][c] = '.';
                             count++;
+                            if (removeRolls)
+                            {
+                                lines[r][c] = '.';
+                            }
                         }
                     }
                 }
@@ -92,6 +98,7 @@ namespace AoC2025
                     }
                     else if (lines[r][c] == '@')
                     {
+                        //roll near us
                         count++;
                     }
                 }
