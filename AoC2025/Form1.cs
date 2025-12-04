@@ -23,8 +23,12 @@ namespace AoC2025
             //v.ValidatePart2();
 
             //day 3
-            var j = new JoltageCalculator();
-            j.Calculate();
+            //var j = new JoltageCalculator();
+            //j.Calculate();
+
+            //day 4
+            var r = new RollLocator();
+            r.FindEm();
 
             Debug.WriteLine(sw.ElapsedMilliseconds.ToString() + "ms");
         }
