@@ -21,22 +21,21 @@ namespace AoC2025
         {
             string[] lineStrings;
 
-//              test data
-//            lineStrings = @"..@@.@@@@.
-//@@@.@.@.@@
-//@@@@@.@.@@
-//@.@@@@..@.
-//@@.@@@@.@@
-//.@@@@@@@.@
-//.@.@.@.@@@
-//@.@@@.@@@@
-//.@@@@@@@@.
-//@.@.@@@.@.".Split('\n')
-// .Select(s => s.Trim())
-// .Where(s => !String.IsNullOrEmpty(s))
-// .ToArray();
+            //              test data
+            lineStrings = Utils.GetLines(
+                @"..@@.@@@@.
+                  @@@.@.@.@@
+                  @@@@@.@.@@
+                  @.@@@@..@.
+                  @@.@@@@.@@
+                  .@@@@@@@.@
+                  .@.@.@.@@@
+                  @.@@@.@@@@
+                  .@@@@@@@@.
+                  @.@.@@@.@.")
+            .ToArray();
 
-            lineStrings = File.ReadAllLines(fileName);
+            //lineStrings = File.ReadAllLines(fileName);
 
             lines = lineStrings.Select(s => s.ToArray()).ToArray();
 

@@ -27,8 +27,12 @@ namespace AoC2025
             //j.Calculate();
 
             //day 4
-            var r = new RollLocator();
-            r.FindEm();
+            //var r = new RollLocator();
+            //r.FindEm();
+
+            //day 5
+            var ingredientFinder = new IngredientFinder();
+            ingredientFinder.CountEm();
 
             Debug.WriteLine(sw.ElapsedMilliseconds.ToString() + "ms");
         }
