@@ -31,8 +31,12 @@ namespace AoC2025
             //r.FindEm();
 
             //day 5
-            var ingredientFinder = new IngredientFinder();
-            ingredientFinder.CountEm();
+            //var ingredientFinder = new IngredientFinder();
+            //ingredientFinder.CountEm();
+
+            //day 5
+            var cephMath = new CephalopodMaths();
+            cephMath.DoHomework2();
 
             Debug.WriteLine(sw.ElapsedMilliseconds.ToString() + "ms");
         }
