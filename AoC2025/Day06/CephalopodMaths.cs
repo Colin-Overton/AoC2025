@@ -94,7 +94,7 @@ namespace AoC2025
                 start = gap + 1;
             }
 
-            Debug.WriteLine("Day5:" + total + " count");
+            Debug.WriteLine("Day6:" + total + " count");
 
             return total;
         }
