@@ -39,8 +39,12 @@ namespace AoC2025
             //cephMath.DoHomework2();
 
             //day 7
-            var tma = new TachyonManifoldAnalyser();
-            tma.Analyse2();
+            //var tma = new TachyonManifoldAnalyser();
+            //tma.Analyse2();
+
+            //day 8
+            var jbc = new JunctionBoxConnector();
+            jbc.Electrify();
 
             Debug.WriteLine(sw.ElapsedMilliseconds.ToString() + "ms");
         }
