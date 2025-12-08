@@ -67,7 +67,10 @@ namespace AoC2025
 
             var pointsWithDist = from idx1 in Enumerable.Range(0, points.Length)
                                  from idx2 in Enumerable.Range(idx1 + 1, points.Length - (idx1 + 1))
-                                 select (p1: points[idx1], p2: points[idx2], dist: Distance(points[idx1], points[idx2]));
+                                 select (p1: points[idx1], 
+                                         p2: points[idx2], 
+                                         dist: Distance(points[idx1], points[idx2])
+                                        );
 
             //int count = 10;
             //int count = 1000;
@@ -75,15 +78,15 @@ namespace AoC2025
             var orderedPoints = pointsWithDist.OrderBy(tup => tup.dist);
                                               //.Take(count);
 
-            var clusters = new List<HashSet<Point>>();
+            var circuits = new List<HashSet<Point>>();
             foreach (var (pt1, pt2, _) in orderedPoints)
             {
-                var c1 = clusters.FirstOrDefault(c => c.Contains(pt1));
-                var c2 = clusters.FirstOrDefault(c => c.Contains(pt2));
+                var c1 = circuits.FirstOrDefault(c => c.Contains(pt1));
+                var c2 = circuits.FirstOrDefault(c => c.Contains(pt2));
 
                 if (c1 == null && c2 == null)
                 {
-                    clusters.Add(new HashSet<Point>(new[] { pt1, pt2 }));
+                    circuits.Add(new HashSet<Point>(new[] { pt1, pt2 }));
                 }
                 else if (c1 == c2)
                 {
@@ -92,9 +95,9 @@ namespace AoC2025
                 else if (c1 != null && c2 != null)
                 {
                     c1.UnionWith(c2);
-                    clusters.Remove(c2);
+                    circuits.Remove(c2);
 
-                    if (clusters.Count == 1 && c1.Count == points.Length)
+                    if (circuits.Count == 1 && c1.Count == points.Length)
                     {
                         var finalX = pt1.x * pt2.x;
                         Debug.WriteLine("Day8:" + finalX + " finalX");
@@ -111,7 +114,7 @@ namespace AoC2025
                 }
             }
 
-            var total = clusters.OrderByDescending(c => c.Count)
+            var total = circuits.OrderByDescending(c => c.Count)
                                 .Take(3)
                                 .Aggregate(1L, (a, c) => a * c.Count);
             
