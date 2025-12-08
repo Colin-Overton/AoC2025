@@ -155,5 +155,69 @@ namespace AoC2025
             KnownTimeLines[depth][position] = timelines;
             return timelines;
         }
+
+        public long Analyse3(string file = @"C:\Users\colin.overton\Documents\AoC2025\day7input.txt")
+        {
+            IEnumerable<string> lines;
+
+            lines = Utils.GetLines(@".......S.......
+                                     ...............
+                                     .......^.......
+                                     ...............
+                                     ......^.^......
+                                     ...............
+                                     .....^.^.^.....
+                                     ...............
+                                     ....^.^...^....
+                                     ...............
+                                     ...^.^...^.^...
+                                     ...............
+                                     ..^...^.....^..
+                                     ...............
+                                     .^.^.^.^.^...^.
+                                     ...............");
+
+            lines = File.ReadLines(file);
+
+            var allLines = lines.Where(line => line.Any(c => c != '.'));
+
+            long[] prevLine = null;
+
+            foreach (var line in allLines)
+            {
+                long[] currLine;
+                if (prevLine == null)
+                {
+                    currLine = new long[line.Length];
+                    var idx = line.IndexOf('S');
+                    currLine[idx] = 1;
+                }
+                else
+                {
+                    currLine = new long[prevLine.Length];
+
+                    for (int i = 0; i < line.Length; i++)
+                    {
+                        if (line[i] == '^')
+                        {
+                            currLine[i - 1] += prevLine[i];
+                            currLine[i + 1] += prevLine[i];
+                        }
+                        else
+                        {
+                            currLine[i] += prevLine[i];
+                        }
+                    }
+                }
+
+                prevLine = currLine;
+            }
+
+            var total = prevLine.Sum();
+
+            Debug.WriteLine("Day7:" + total + " total");
+
+            return total;
+        }
     }
 }
